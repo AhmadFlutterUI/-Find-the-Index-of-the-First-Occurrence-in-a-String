@@ -1,0 +1,21 @@
+class Solution {
+    int strStr(String haystack, String needle) {
+    List<int> match = [];
+    for (int i = 0; i < haystack.length; i++) {
+      if (haystack.length - i < needle.length) {
+        break;
+      }
+      for (int j = 0; j < needle.length; j++) {
+        if (needle[j] == haystack[i + j]) {
+          if (j == needle.length - 1) {
+            match.add(i);
+            break;
+          }
+        } else {
+          break;
+        }
+      }
+    }
+    return match.isEmpty ? -1 : match[0];
+  }
+}
